@@ -10,7 +10,8 @@ import {
   StyleSheet,
   Text,
   View,
-  Button
+  Button,
+  TextInput
 } from 'react-native';
 
 const instructions = Platform.select({
@@ -27,10 +28,8 @@ export default class App extends Component<Props> {
       this.state={
         data:[],
         message:"UnLike",
-        type:""
+        text:""
       };
-      this.changeMessage=this.changeMessage.bind(this);
-      this.insertData=this.insertData.bind(this);
   }
   changeMessage(){
     this.setState({message:"Like"})
@@ -51,14 +50,21 @@ export default class App extends Component<Props> {
           {this.state.data}
         </Text>
         <Text style={styles.instructions}>
-          {instructions}
+          text: {this.state.text}
         </Text>
         <Button
-          onPress={this.changeMessage}
+          onPress={this.changeMessage.bind(this)}
           title = {this.state.message}/>
         <Button
-          onPress={this.insertData}
+          onPress={this.insertData.bind(this)}
           title = "insert"/>
+          <TextInput
+            onChangeText={(text) => this.setState({text})}
+            value={this.state.text}
+            style = {{width: 200}}
+            placeholder="placeholder"
+            editable={true}
+            maxLenght={40}/>
       </View>
     );
   }
@@ -81,4 +87,10 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
+  TextInputSty: {
+    height: 30,
+    width: 50,
+    borderColor: 'gray',
+    borderWidth: 1
+  }
 });
