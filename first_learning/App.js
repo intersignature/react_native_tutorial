@@ -9,7 +9,8 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
+  Button
 } from 'react-native';
 
 const instructions = Platform.select({
@@ -21,18 +22,43 @@ const instructions = Platform.select({
 
 type Props = {};
 export default class App extends Component<Props> {
+  constructor(){
+      super();
+      this.state={
+        data:[],
+        message:"UnLike",
+        type:""
+      };
+      this.changeMessage=this.changeMessage.bind(this);
+      this.insertData=this.insertData.bind(this);
+  }
+  changeMessage(){
+    this.setState({message:"Like"})
+  }
+  insertData(){
+    var item="React";
+    var myArray=this.state.data;
+    myArray.push(item);
+    this.setState({data:myArray});
+  }
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native!
+          {this.state.message}
         </Text>
         <Text style={styles.instructions}>
-          To get started, edit App.js
+          {this.state.data}
         </Text>
         <Text style={styles.instructions}>
           {instructions}
         </Text>
+        <Button
+          onPress={this.changeMessage}
+          title = {this.state.message}/>
+        <Button
+          onPress={this.insertData}
+          title = "insert"/>
       </View>
     );
   }
