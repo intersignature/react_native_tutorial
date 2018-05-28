@@ -1,9 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
   Platform,
@@ -16,7 +10,6 @@ import Body from './app/component/Body';
 
 export default class App extends Component<Props> {
   render() {
-    return (
       <Body />
     );
   }
