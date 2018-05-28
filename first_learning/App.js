@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
-import Main from './app/components/Main';
+import {
+  Platform,
+  StyleSheet,
+  Text,
+  View,
+  Button
+} from 'react-native';
+import Body from './app/component/Body';
 
 export default class App extends Component<Props> {
   render() {
-    return (
-      <Main/>
+      <Body />
     );
   }
 }
