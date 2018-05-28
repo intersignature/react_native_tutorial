@@ -6,7 +6,8 @@ import {
   View,
   Button
 } from 'react-native';
-import Body from './app/component/Body';
+import Body from './app/hammer_paper_scissors/Body';
+import Main from './app/note/Main';
 
 export default class App extends Component<Props> {
   render() {
