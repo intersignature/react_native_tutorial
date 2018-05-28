@@ -10,6 +10,7 @@ import Body from './app/component/Body';
 
 export default class App extends Component<Props> {
   render() {
+    return (
       <Body />
     );
   }
